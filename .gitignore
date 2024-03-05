@@ -4,3 +4,7 @@
 *.docx
 *.gdoc
 *.DS_Store
+.terraform.lock.hcl
+env/
+modules/
+terraform.tf
