@@ -8,14 +8,6 @@ resource "azurerm_resource_group" "resource_group" {
   location = var.resource_group_location
 }
 
-# Create a virtual network
-resource "azurerm_virtual_network" "virtual_network" {
-  name                = "test-vnet"
-  address_space       = ["10.0.1.0/24"]
-  location            = var.resource_group_location
-  resource_group_name = azurerm_resource_group.resource_group.name
-}
-
 # Create a Storage Account
 resource "azurerm_storage_account" "storage_account" {
   name                     = "teststorage1jdbqljwdbjqh"
