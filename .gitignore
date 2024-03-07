@@ -4,6 +4,7 @@
 *.docx
 *.gdoc
 *.DS_Store
+*.pem
 
 # Local .terraform directories
 **/.terraform/*
