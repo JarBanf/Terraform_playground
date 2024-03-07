@@ -1,11 +1,15 @@
-variable "resource_group_location" {
-  type        = string
-  default     = "westeurope"
-  description = "Location of the resource group"
+variable "location" {
+  description = "Azure region in which to create resources."
 }
 
-variable "resource_group_name_prefix" {
-  type        = string
-  default     = "rg"
-  description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
+variable "resource_group_name" {
+  description = "Name of the resource group in which to create resources."
+}
+
+variable "storage_account_name" {
+  description = "Name of the storage account"
+}
+
+variable "source_content" {
+  description = "The content of the source code to be uploaded to the storage account."
 }

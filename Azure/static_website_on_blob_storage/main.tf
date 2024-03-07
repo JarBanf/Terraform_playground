@@ -1,18 +1,14 @@
-resource "random_pet" "rg_name" {
-  prefix = var.resource_group_name_prefix
-}
-
 # Create a resource group
 resource "azurerm_resource_group" "resource_group" {
-  name     = "rg-terraform"
-  location = var.resource_group_location
+  name     = var.resource_group_name
+  location = var.location
 }
 
 # Create a Storage Account
 resource "azurerm_storage_account" "storage_account" {
-  name                     = "teststorage1jdbqljwdbjqh"
+  name                     = var.storage_account_name
   resource_group_name      = azurerm_resource_group.resource_group.name
-  location                 = var.resource_group_location
+  location                 = var.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind             = "StorageV2"
@@ -29,5 +25,5 @@ resource "azurerm_storage_blob" "blob" {
   storage_container_name = "$web"
   type                   = "Block"
   content_type           = "text/html"
-  source_content         = "<h1>Hi from Terraform</h1>"
+  source_content         = var.source_content
 }
