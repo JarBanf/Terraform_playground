@@ -23,23 +23,23 @@ resource "azurerm_network_interface" "nic_windows" {
 
 # Create windows virtual machine
 resource "azurerm_windows_virtual_machine" "vm_windows" {
-    name                = "vm-windows"
-    resource_group_name = azurerm_resource_group.resource_group.name
-    location              = azurerm_resource_group.resource_group.location
-    size                  = "Standard_DC1S_v3"
-    admin_username = "adminuser"
-    admin_password = "Password1234"
-    network_interface_ids = [azurerm_network_interface.nic_windows.id]
+  name                  = "vm-windows"
+  resource_group_name   = azurerm_resource_group.resource_group.name
+  location              = azurerm_resource_group.resource_group.location
+  size                  = "Standard_DC1S_v3"
+  admin_username        = "adminuser"
+  admin_password        = "Password1234"
+  network_interface_ids = [azurerm_network_interface.nic_windows.id]
 
-    os_disk {
-      caching = "ReadWrite"
-      storage_account_type = "Standard_LRS"
-    }
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
 
-    source_image_reference {
-      publisher = "microsoftwindowsdesktop"
-      offer = "windows-11"
-      sku = "win11-21h2-pro"
-      version = "latest"
-    }
+  source_image_reference {
+    publisher = "microsoftwindowsdesktop"
+    offer     = "windows-11"
+    sku       = "win11-21h2-pro"
+    version   = "latest"
+  }
 }
